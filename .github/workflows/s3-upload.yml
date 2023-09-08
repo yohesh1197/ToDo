@@ -25,3 +25,6 @@ jobs:
 
     - name: Sync files to S3
       run: aws s3 sync "${{ github.workspace }}/upload" s3://automation1197
+
+    - name: Create CloudFront Invalidation
+    run: aws cloudfront create-invalidation --distribution-id your-distribution-id --paths "/*"
